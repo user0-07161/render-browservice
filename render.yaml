@@ -1,0 +1,3 @@
+services: 
+  - name: my-coder-service
+    dockerfile: Dockerfile
