@@ -1,12 +1,9 @@
 
 # Base Image
-FROM debian:unstable
+FROM debian:stable
 
 # Update and install required packages
-RUN apt update && apt upgrade -y && apt install -y \
-    openssh-server \
-    docker.io \
-    git \
+RUN apt update && apt install -y \
     wget
 
 # idk
