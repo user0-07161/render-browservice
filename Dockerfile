@@ -1,20 +1,13 @@
+
 # Base Image
 FROM debian:unstable
 
 # Update and install required packages
-RUN apt update && apt upgrade -y && apt install -y \
-    systemd \
-    systemd-sysv \
+RUN apt update && apt upgrade -y && apt install -y
     openssh-server \
-    sudo \
-    dbus \
-    vim \
     docker.io \
-    lxc \
-    curl \
     git \
-    wget \
-    && apt clean && rm -rf /var/lib/apt/lists/*
+    wget
 
 # idk
 RUN wget https://github.com/ttalvitie/browservice/releases/download/v0.9.11.0/browservice-v0.9.11.0-x86_64.AppImage -O browservice.AppImage
