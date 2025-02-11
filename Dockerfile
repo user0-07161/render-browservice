@@ -35,9 +35,7 @@ ENV PASSWORD="PrivatePass123#"
 # COPY extensions.txt /home/coder/extensions.txt
 # RUN cat /home/coder/extensions.txt | xargs -n 1 code-server --install-extension
 
-RUN systemctl set-default multi-user.target
-RUN systemctl enable docker
-RUN systemctl enable code-server@root
+RUN /usr/bin/browservice --install-verdana
 
 # Set systemd as the entrypoint
 CMD ["/usr/bin/browservice --vice-opt-http-listen-addr=0.0.0.0:8080"]
