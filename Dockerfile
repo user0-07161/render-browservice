@@ -3,7 +3,7 @@
 FROM debian:unstable
 
 # Update and install required packages
-RUN apt update && apt upgrade -y && apt install -y
+RUN apt update && apt upgrade -y && apt install -y \
     openssh-server \
     docker.io \
     git \
