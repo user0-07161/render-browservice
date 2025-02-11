@@ -13,7 +13,7 @@ RUN apt update && apt upgrade -y && apt install -y \
     lxc \
     curl \
     git \
-    wget
+    wget \
     && apt clean && rm -rf /var/lib/apt/lists/*
 
 # idk
