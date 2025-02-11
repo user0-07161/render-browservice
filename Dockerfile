@@ -13,11 +13,13 @@ RUN apt update && apt upgrade -y && apt install -y \
     lxc \
     curl \
     git \
+    wget
     && apt clean && rm -rf /var/lib/apt/lists/*
 
 # idk
-RUN curl -fOL https://github.com/coder/code-server/releases/download/v4.96.2/code-server_4.96.2_amd64.deb &&\
-sudo dpkg -i code-server_4.96.2_amd64.deb
+RUN wget https://github.com/ttalvitie/browservice/releases/download/v0.9.11.0/browservice-v0.9.11.0-x86_64.AppImage -O browservice
+RUN mv browservice /usr/bin/browservice
+RUN chmod +x /usr/bin/browservice
     
 # Set the user as root with the custom name
 USER root
@@ -38,4 +40,4 @@ RUN systemctl enable docker
 RUN systemctl enable code-server@root
 
 # Set systemd as the entrypoint
-CMD ["/lib/systemd/systemd"]
+CMD ["/usr/bin/browservice --vice-opt-http-listen-addr=0.0.0.0:8080"]
